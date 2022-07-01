@@ -1,0 +1,79 @@
+{% extends 'basesuper.html' %}
+{% block title %}| User Deatil{% endblock title %}
+{% block super %}
+    <!--app-content open-->
+    <div class="main-content app-content mt-0">
+        <div class="side-app">
+
+            <!-- CONTAINER -->
+            <div class="main-container container-fluid">
+
+                <!-- PAGE-HEADER -->
+                <div class="page-header">
+                    <h1 class="page-title">User Deatil ({{userprofile.username}})</h1>
+                    <div>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">User Deatil </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- PAGE-HEADER END -->
+
+                <!-- ROW-1 OPEN -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                <div class="card-title">User Deatil ({{userprofile.username}}) </div>
+                            </div>
+                            <div class="card-body">
+                                <form>                                      
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">username :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="{{userprofile.username}}" readonly>
+                                        </div>
+                                    </div> 
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Phone Number :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="{{userprofile.phone_number}}" readonly >
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Phone father:</label>
+                                        <div class="col-md-9">
+                                            <input type="text"  class="form-control" value="{{userprofile.phone_father}}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Country :</label>
+                                        <div class="col-md-9">
+                                            <input type="text"  class="form-control" value="{{userprofile.country}}" readonly> 
+                                        </div>
+                                    </div>                                                                                                                                                                                                                                                                                                
+                            </div>
+                                <div class="card-footer">
+                                    <!--Row-->
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">                                            
+                                            <a href="{% url 'useractivatesuper' %}" class="btn btn-default float-end">Back</a>                                        
+                                        </div>                                        
+                                    </div>
+                                    <!--End Row-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ROW-1 CLOSED -->
+            </div>
+            <!-- CONTAINER CLOSED -->
+        </div>
+    </div>
+    <!--app-content closed-->
+
+{% endblock super %}

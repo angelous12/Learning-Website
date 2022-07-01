@@ -1,0 +1,107 @@
+{% extends 'basesuper.html' %}
+{% block title %}| Add Question{% endblock title %}
+{% block super %}
+    <!--app-content open-->
+    <div class="main-content app-content mt-0">
+        <div class="side-app">
+
+            <!-- CONTAINER -->
+            <div class="main-container container-fluid">
+
+                <!-- PAGE-HEADER -->
+                <div class="page-header">
+                    <h1 class="page-title">Add New Question ({{getid.course_name}})</h1>
+                    <div>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Add New Question</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- PAGE-HEADER END -->
+
+                <!-- ROW-1 OPEN -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                <div class="card-title">Add New Question ({{getid.course_name}})</div>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" >
+                                    {% csrf_token %}   
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Question :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="question" class="form-control" placeholder="Question">
+                                        </div>
+                                    </div> 
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Marks :</label>
+                                        <div class="col-md-9">
+                                            <input type="number" name="marks" class="form-control" placeholder="marks">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Option1 :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="option1" class="form-control" placeholder="option1">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Option2 :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="option2" class="form-control" placeholder="option2"> 
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Option3 :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="option3" class="form-control" placeholder="option3">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Option4 :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="option4" class="form-control" placeholder="option4">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Answar :</label>
+                                        <div class="col-md-9">
+                                            <select name="answar" class="form-control form-select select2" data-bs-placeholder="Select status">
+                                                <option value='none'>Select a Answar....</option>                                                
+                                                <option value="ا">Option 1 (ا)</option>   
+                                                <option value="ب">Option 2 (ب)</option>                                             
+                                                <option value="ج">Option 3 (ج)</option>   
+                                                <option value="د">Option 4 (د)</option>   
+                                        </select>
+                                        </div>
+                                    </div>    
+                                                                                                                                                                                                                                                                                               
+                            </div>
+                                <div class="card-footer">
+                                    <!--Row-->
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">
+                                            <button name="back" class="btn btn-primary" type="submit">Save Question To Back </button>
+                                            <a href=""><input name="add" type="submit" class="btn btn-primary" value="Save And Add New Question " ></a>
+                                            <a href="javascript:void(0)" class="btn btn-default float-end">Discard</a>                                        
+                                        </div>                                        
+                                    </div>
+                                    <!--End Row-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ROW-1 CLOSED -->
+            </div>
+            <!-- CONTAINER CLOSED -->
+        </div>
+    </div>
+    <!--app-content closed-->
+
+{% endblock super %}

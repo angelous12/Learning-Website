@@ -1,0 +1,133 @@
+{% extends 'base2.html' %}
+{% block content %}
+
+<section class="login-signup-body container" style='margin-top:56px'>
+
+    <div class="forms-container">
+        <div class="signin-signup">
+            {% include 'partials/alerts.html' %}
+            <form method="post" class="sign-in-form">
+                {% csrf_token %}
+                <h2 class="title">Sign In</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input name='username' type="text" placeholder="User Name">
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input name='password' type="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <script src="https://www.google.com/recaptcha/api.js"></script>
+                    <div class="g-recaptcha" data-sitekey="6LexCbgfAAAAAOBQSTwARO12XTOrfrcWvkVwyibS"></div>
+                </div>
+
+                <button type="submit" name="login" class="btn btn-warning">Login </button>
+                <p class="social-text">Or Sign In With Socials Platforms</p>
+
+                <div class="social-media">
+                    <a href="" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </form>
+
+
+            <form method="POST" class="sign-up-form">
+                <h2 class="title">Sign Up</h2>
+
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input name="username" type="text" placeholder="User Name">
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input name="firstname"  type="text" placeholder="First Name">
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input name="lastname"  type="text" placeholder="Last Name">
+                </div>
+
+                <div class="input-field">
+                    <i class="fa-solid fa-phone"></i>
+                    <input name="phone"  type="number" placeholder="Phone Number ">
+                </div>
+
+                {% comment %} <div class="input-field">
+                    <i class="fa-solid fa-phone"></i>
+                    <input name="phonefather"  type="number" placeholder="Father's Number">
+                </div> {% endcomment %}
+
+                {% comment %} <div class="input-field">
+                    <i class="fa-solid fa-earth-asia"></i>
+                    <input name=""  type="text" placeholder="Country">
+                </div> {% endcomment %}
+
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input name="email"  type="email" placeholder="Email Address">
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input name="password"  type="password" placeholder="Password">
+                </div> 
+                <div class="form-group">
+                    <script src="https://www.google.com/recaptcha/api.js"></script>
+                    <div class="g-recaptcha" data-sitekey="6LexCbgfAAAAAOBQSTwARO12XTOrfrcWvkVwyibS"></div>
+                </div>               
+                <button type="submit" name="signup" class="btn btn-warning">signup </button>
+                <p class="social-text">Or Sign Up With Socials Platforms</p>
+
+                <div class="social-media">
+                    <a href="" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>New Here ?</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus quidem?</p>
+                <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+            </div>
+            <img src="/static/images/login.png" class="image" alt="">
+        </div>
+
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>One OF Us?</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus impedit</p>
+                <button class="btn transparent" id="sign-in-btn">Sign In</button>
+            </div>
+            <img src="/static/images/sign.svg" class="image" alt="">
+        </div>
+    </div>
+</section>
+<script>
+    // =====> Log In & Sign Up  <===== //
+
+    const signInBtn = document.querySelector("#sign-in-btn");
+    const signUpBtn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".login-signup-body");
+
+    signUpBtn.addEventListener("click", () => {
+        container.classList.add("sign-up-mode");
+    });
+
+    signInBtn.addEventListener("click", () => {
+        container.classList.remove("sign-up-mode");
+    });
+</script>
+
+{% endblock content %}

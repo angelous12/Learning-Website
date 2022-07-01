@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<section class="user-profile container">
+
+    <h2>User Data</h2>
+    <div class="user-icon"> <i class="fa-solid fa-user"></i></div>
+
+    <div class="table-container">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Name</th>
+                    <th>phone No.</th>
+                    <th>phone fa.</th>
+                    <th>E-Mail</th>
+                    <th>City</th>
+                    <th>All Buy</th>                                       
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td data-label="User ID">{{user.id}}</td>
+                    <td data-label="User Name">{{user.username}}</td>
+                    <td data-label="User Name">{{user.first_name |add:' '|add:user.last_name}}</td>
+                    <td data-label="phone No.">{{user.phone_number}}</td>
+                    <td data-label="phone No.">{{user.phone_father}}</td>
+                    <td data-label="E-Mail">{{user.email}}</td>
+                    {% if user.country %}
+                    <td data-label="City">{{user.country}}</td>
+                    {% else %}
+                    <td data-label="City">None</td>
+                    {% endif %}                   
+                    <td data-label="Purchased Courses">{{allsales.count}}</td>                                    
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+   
+    
+
+
+</section>
+
+
+{% endblock content %}

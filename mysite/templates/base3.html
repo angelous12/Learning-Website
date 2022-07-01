@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Style Files -->
+    <link rel="stylesheet" href="{% static 'CSS/normalize.css' %}" />   
+    <link rel="stylesheet" href="{% static 'CSS/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/user-profile.css' %}" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Swipper JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+
+    <title>E-Learning</title>
+</head>
+
+<body>
+    {% include "partials/navbar.html" %}
+    {% block content %}
+      
+    {% endblock content %}
+    {% include "partials/footer.html" %}
+  
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="{% static 'JS/main.js' %} "></script>
+    <script>
+        const icon = document.getElementById("icon");
+        const bodyEl = document.querySelector("body");
+
+        const lightMood = () => {
+            bodyEl.classList.toggle("light-theme");
+        };
+
+        icon.addEventListener("click", () => {
+            setLightMood = localStorage.getItem("light");
+
+            if (setLightMood !== "on") {
+                lightMood();
+
+                setLightMood = localStorage.setItem("light", "on");
+            } else {
+                lightMood();
+
+                setLightMood = localStorage.setItem("light", null);
+            }
+        });
+
+        let setLightMood = localStorage.getItem("light");
+
+        if (setLightMood === "on") {
+            lightMood();
+        }
+    </script>
+</body>
+</html>

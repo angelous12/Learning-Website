@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'partials/alerts.html' %}
+<section class="contact" > 
+    <div class="contact-container container">        
+        <aside class="contact-aside">
+            <div class="aside-image">
+                <img src="/static/images/contact.png" alt="">
+            </div>
+            <h2>Contact Us</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestias cum fugit impedit error consectetur porro alias saepe.</p>
+            <ul class="contact-details">
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    <h5>{{infocontact.phone}}</h5>
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <h5>{{infocontact.email}}</h5>
+                </li>
+                <li>
+                    <i class="fa-solid fa-location-pin"></i>
+                    <h5>{{infocontact.address}}</h5>
+                </li>
+            </ul>
+            <ul class="contact-social">
+                <li>
+                    <a href="{{infocontact.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="{{infocontact.facebook}}"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="{{infocontact.twiiter}}"><i class="fa-brands fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="{{infocontact.facebook}}"><i class="fa-brands fa-linkedin-in"></i></a>
+                </li>
+            </ul>
+        </aside>
+
+        <form method="POST">
+            <div class="form-name">
+                <input name="name" type="text" name="First Name" placeholder="First Name" required>
+                <input name="name2" type="text" name="Last Name" placeholder="Last Name" required>
+            </div>
+            <input name="email" type="email" name="Email Address" placeholder="Your Email" required>
+            <textarea name="message" name="Message" rows="7" placeholder="Your Message Here" required></textarea>
+            <button type="submit" class="btn-primary btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
+
+
+{% endblock content %}

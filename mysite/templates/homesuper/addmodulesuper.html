@@ -1,0 +1,55 @@
+{% extends 'basesuper.html' %}
+{% block title %}| Add Blog{% endblock title %}
+{% block super %}
+    <!--app-content open-->
+    <div class="main-content app-content mt-0">
+        <div class="side-app">
+
+            <!-- CONTAINER -->
+            <div class="main-container container-fluid">
+
+                <!-- PAGE-HEADER -->
+                <div class="page-header">
+                    <h1 class="page-title">Add Blog</h1>
+                    <div>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Add Blog</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- PAGE-HEADER END -->
+
+                <!-- ROW-1 OPEN -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Add Blog</div>
+                            </div>
+                            <form method='POST' >
+                                {% csrf_token %}
+                                <div class="card-body">
+                                    {{form}}                                    
+                                </div>    
+                                <div class="card-footer">
+                                    <!--Row-->
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">
+                                            <button class="btn btn-primary">Add Blog</button>
+                                        </div>
+                                    </div>
+                                    <!--End Row-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ROW-1 CLOSED -->
+            </div>
+            <!-- CONTAINER CLOSED -->
+        </div>
+    </div>
+    <!--app-content closed-->
+{% endblock super %}

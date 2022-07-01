@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="user-profile container">
+
+    <h2>User Result Exams</h2>
+    <div class="user-icon"><i class="fa-brands fa-steam"></i></div>
+
+    <div class="table-container">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Exam Name</th>                    
+                    <th>Total Marks</th> 
+                    <th>Date</th>                                    
+                    <th>View</th>                    
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for re in get_exams  %}
+                <tr>
+                    <td data-label="Exam Name">{{re.exam.course_name}}</td>                    
+                    <td data-label="answered Questions">{{re.marks}}</td>        
+                    <td data-label="answered Questions">{{re.date}}</td>                      
+                    <td data-label="Exam Link">
+                        <button><a href="{% url 'reviewexam' re.id %}" class="btn btn-primary">View</a></button>
+                    </td>
+                </tr>       
+                {% endfor %}         
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+
+
+
+{% endblock content %}

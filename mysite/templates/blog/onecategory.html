@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="community questions">
+    <div class="head">
+        <h2>{{get_id.title}}</h2>
+
+        <div class="user-icon"> <i class="fa-solid fa-circle-question"></i>
+        </div>
+
+        <h3>Choose any question to see and share your answer</h3>
+    </div>
+    <div class="container">
+        <div class="boxs questions">
+            {% for re in filter  %}
+                <div class="box questions">
+                    <a href="{% url 'openpost' re.id %}">
+                        <div class="content">
+                            <div class="q">
+                                <h3>{{re.title}}</h3>
+                            </div>
+                            <div class="date">
+                                <p>{{re.create_at}}</p>
+                                <div class="time"><i class="fa-solid fa-clock"></i></div>
+                            </div>
+                            <div class="user">
+                                <h5>{{re.user.first_name |add:' '|add:re.user.last_name}}</h5>
+                                <div class="icon"><i class="fa-solid fa-circle-user"></i></div>
+                            </div>
+                        </div>
+                        <div class="main-icon">
+                            <i class="fa-solid fa-question"></i>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+{% endblock content %}

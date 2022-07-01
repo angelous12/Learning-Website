@@ -1,0 +1,82 @@
+   <!-- Start NavBar -->
+   <nav>
+    <div class="nav-container container">
+        <a href="/">
+            <h4>E-Learning</h4>
+        </a>
+        <div class="navbar">
+            <ul class="nav-menu">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}">About</a>
+                </li>
+                <li>
+                    <a href="{% url 'allcourses' %}">Courses</a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                {% else %}
+
+                <li>
+                    <a class="login" href="login.html">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% if request.user.is_authenticated %}
+            <div class="profile-img" onclick="menuToggle();"> <img src="/static/images/user-profile.png" alt=""></div>
+            <div class="profile">
+                <ul>
+                    <li><img src="/static/images/user-icon.png" alt="">
+                        <a href="{% url 'profile' %}">Your Profile</a>
+                    </li>
+
+                    {% comment %} <li><img src="/static/images/edit-icon.png" alt="">
+                        {% comment %} <a href="user-profile.html">Edit Profile</a>
+                    </li> {% endcomment %} 
+
+                    <li><img src="/static/images/your-courses.png" alt="">
+                        <a href="{% url 'mycourse' %}">Your Courses</a>
+                    </li>
+
+                    {% comment %} <li><img src="/static/images/your-lessons.png" alt="">
+                        <a href="user-lessons.html">Your Lessons</a>
+                    </li> {% endcomment %}
+
+                    <li><img src="/static/images/your-exams.png" alt="">
+                        <a href="{% url 'student_exam_view' %}">Your Exams</a>
+                    </li>
+
+                    <li><img src="/static/images/your-exams.png" alt="">
+                        <a href="{% url 'marksallexams' %}">Result Exams</a>
+                    </li>
+
+                    <li><img src="/static/images/community-icon.png" alt="">
+                        <a href="{% url 'blog' %}">Community</a>
+                    </li>
+
+                    <li><img src="/static/images/logout.png" alt="">
+                        <a href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+                        
+            {% endif %}
+            <i id="icon" class="fa-solid fa-moon fa-2x"></i>
+        </div>
+        <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
+        <button id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</nav>
+<!-- End NavBar -->
+<script>
+    // =====> profile toggle Menu <===== //
+    function menuToggle() {
+        const toggleMenu = document.querySelector('.profile');
+        toggleMenu.classList.toggle('active')
+
+    }
+</script>

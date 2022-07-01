@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .courses {
+        margin-top: 1rem;
+    }
+</style>
+<section class="courses buy-course-section">
+    {% include 'partials/alerts.html' %}
+    <h2>{{get_id.title}}</h2>
+    <div class="courses-container container buy-course-container">
+
+        <article class="course buy-course">
+            <div class="course-img">
+                <img src="{{get_id.image.url}}" alt="">
+            </div>
+            <div class="course-info">
+                <p>{{get_id.descrption | safe}}</p>
+                <div class="price">{{get_id.price}} EGP</div>
+                {% if checkk == True %}
+                <a class="btn-primary btn"> تم الشراء</a>
+                {% else %}
+                <a onclick="popupToggle();" class="btn-primary btn">Buy Now</a>
+                {% endif %}
+            </div>
+        </article>
+        {% if checkk == True %}
+        {% else %}
+        <form method='POST'>
+            {% csrf_token %}        
+            <div id="popup">
+                <div class="content">
+                    <h4>Enter your phone number to confirm the transfer</h4>
+                </div>
+
+                <div class="input">
+                    <i class="fa-solid fa-phone"></i>
+                    <input name='phone' type="tel" placeholder="Phone Number" id="mob" required>
+                </div>
+                <div class="submit-btn">
+                    <input type="submit" value="Submit">
+                </div>
+
+                <div class="close" onclick="popupToggle();">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+            </div>
+        </form>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+    function popupToggle() {
+        const popup = document.getElementById('popup');
+        popup.classList.toggle('active')
+    }
+</script>
+
+{% endblock content %}

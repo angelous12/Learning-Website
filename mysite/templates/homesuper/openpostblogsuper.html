@@ -1,0 +1,135 @@
+{% extends 'basesuper.html' %}
+{% block title %}| Answar Blog{% endblock title %}
+{% block super %}
+    <!--app-content open-->
+    <div class="main-content app-content mt-0">
+        <div class="side-app">
+
+            <!-- CONTAINER -->
+            <div class="main-container container-fluid">
+
+                <!-- PAGE-HEADER -->
+                <div class="page-header">
+                    <h1 class="page-title">Answar Blog ({{get_id.title}})</h1>
+                    <div>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Answar Blog </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- PAGE-HEADER END -->
+
+                <!-- ROW-1 OPEN -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Answar Blog  ({{get_id.title}})</div>                                
+                            </div>
+                            <div class="card-body">
+                                <form method='POST' enctype="multipart/form-data" >
+                                    {% csrf_token %}
+
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">user :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="{{get_id.user}}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Category Question :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="{{get_id.category}}" readonly>
+                                        </div>
+                                    </div>                                   
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Question :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="{{get_id.title}}" readonly>
+                                        </div>
+                                    </div>
+                                    {% if status == 1 %}
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">detail :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="{{get_id.deatil}}" readonly>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label" for="w3review">detail :</label>
+                                        <div class="col-md-9">
+                                            {{form.deatil}}
+                                        </div>
+                                    </div>
+                                    {% endif %}                                    
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Image :</label>
+                                        <div class="col-md-9">
+                                            <img  style="cursor: default;width: 400x;height: 400px;" src='{{get_id.image.url}}'>
+                                        </div>
+                                    </div>                                     
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">status :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" value="{{get_id.status}}" readonly>
+                                        </div>
+                                    </div>                                   
+                                                                                           
+                                    {% if status == 1 %}
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label" for="w3review">My Answer :</label>
+                                        <div class="col-md-9">
+                                            {{form_don.comment}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label" for="w3review">Chnage Image :</label>
+                                        <div class="col-md-9">
+                                            {{form_don.image}}
+                                        </div>
+                                    </div>
+                                        {% if get_data.image %}
+                                        <div class="row mb-4">
+                                            <label class="col-md-3 form-label">Image :</label>
+                                            <div class="col-md-9">
+                                                <img  style="cursor: default;width: 100px;height: 100px;" src='{{get_data.image.url}}'>
+                                            </div>
+                                        </div>  
+                                        {% endif %}                                    
+                                    {% else %} 
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label"> Answer This Question :</label>
+                                        <div class="col-md-9">
+                                            <input name="comment" type="text" class="form-control"> 
+                                        </div>
+                                    </div>  
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Upload Photo :</label>
+                                        <div class="col-md-9">
+                                            <input name="image" type="file" > 
+                                        </div>
+                                    </div> 
+                                    {% endif %}                                                 
+                                <div class="card-footer">
+                                    <!--Row-->                                   
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">
+                                            <button class="btn btn-primary">Save Blog</button>
+                                        </div>
+                                    </div>                                    
+                                    <!--End Row-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ROW-1 CLOSED -->
+            </div>
+            <!-- CONTAINER CLOSED -->
+        </div>
+    </div>
+    <!--app-content closed-->
+{% endblock super %}

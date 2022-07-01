@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .courses {
+        margin-top: 1rem;
+    }
+</style>
+    <!-- Start Courses -->
+    <section class="courses">
+        <h2>All Courses</h2>
+        <div class="courses-container container">
+            {% for re in cat  %}
+            <article class="course">
+                <div class="course-img">
+                    <img src="{{re.image.url}}" alt=""style="
+                    width: 385px;
+                    height: 385px;
+                ">
+                </div>
+                <div class="course-info">
+                    <h4>{{re.title}}</h4>
+                    <p>{{re.deatil}}</p>
+                    <a href="{% url 'singlecourses' re.id %}" class="btn-primary btn">Learn More</a>
+                </div>
+            </article>  
+            {% endfor %}         
+        </div>
+    </section>
+    <!-- End Courses -->
+
+
+
+{% endblock content %}
+
+
+

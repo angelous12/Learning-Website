@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Style Files -->
+    <link rel="stylesheet" href="{% static 'test/css/bootstrap.min.css' %}"> 
+    <link rel="stylesheet" href="{% static 'CSS/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'CSS/all.min.css' %}">   
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Swipper JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+
+    <title>E-Learning</title>
+</head>
+
+<body>
+    {% comment %} {% include "partials/navbar.html" %} {% endcomment %}
+    {% block content %}
+      
+    {% endblock content %}
+    {% comment %} {% include "partials/footer.html" %} {% endcomment %}
+
+    <script src="{% static 'test/js/jquery-3.4.1.slim.min.js'  %}"></script>
+    <script src="{%  static 'test/js/popper.min.js'  %}"></script>
+    <script src="{% static 'test/js/bootstrap.min.js'   %}"></script> 
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="{% static 'JS/main.js' %} "></script>  
+</body>
+</html>

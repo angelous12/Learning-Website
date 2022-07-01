@@ -1,0 +1,76 @@
+{% extends 'basesuper.html' %}
+{% block title %}| Edit Exam{% endblock title %}
+{% block super %}
+    <!--app-content open-->
+    <div class="main-content app-content mt-0">
+        <div class="side-app">
+
+            <!-- CONTAINER -->
+            <div class="main-container container-fluid">
+
+                <!-- PAGE-HEADER -->
+                <div class="page-header">
+                    <h1 class="page-title">Add New Exam ({{getcategory.title}})</h1>
+                    <div>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Add New Exam</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- PAGE-HEADER END -->
+
+                <!-- ROW-1 OPEN -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                <div class="card-title">Add New Exam To Category ({{getcategory.title}})</div>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" >
+                                    {% csrf_token %}   
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Name Exam :</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="nameexam" class="form-control" placeholder="Name Exam" required>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Question Number :</label>
+                                        <div class="col-md-9">
+                                            <input type="number" name="numberq" class="form-control" placeholder="Question Number" required>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">Total Marks :</label>
+                                        <div class="col-md-9">
+                                            <input type="number" name="marks" class="form-control" placeholder="Total Marks" required>
+                                        </div>
+                                    </div>                                                                                                                                                                                                                                                                                
+                            </div>
+                                <div class="card-footer">
+                                    <!--Row-->
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">
+                                            <button class="btn btn-primary" type="submit">Add New Exam</button>
+                                            <a href=""><input type="submit" class="btn btn-primary" value="Save And Add New Question " ></a>
+                                            <a href="javascript:void(0)" class="btn btn-default float-end">Discard</a>                                        
+                                        </div>                                        
+                                    </div>
+                                    <!--End Row-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ROW-1 CLOSED -->
+            </div>
+            <!-- CONTAINER CLOSED -->
+        </div>
+    </div>
+    <!--app-content closed-->
+
+{% endblock super %}

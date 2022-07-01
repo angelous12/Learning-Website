@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="community">
+    <div class="head">
+        {% include 'partials/alerts.html' %}
+        <h2>Our Community, Welcome!</h2>
+        <div class="user-icon"> <i class="fa-solid fa-group-arrows-rotate"></i></div>
+        <div class="btn">
+            <a onclick="popupToggle();">Post New Question</a><i class="fa-solid fa-pen-to-square"></i>
+        </div>
+        
+        <h3>Choose the class to share and see its questions</h3>
+        <form method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div id="popup">
+            <div class="content">
+                <h4>Add Your Question Here</h4>
+            </div>
+
+            <div class="input">
+                <select name="category" required>                    
+                    {% for re in cat  %}
+                    <option value="{{re.id}}">{{re.title}}</option>  
+                    {% endfor %}                     
+                </select>
+            </div>
+
+            <div class="input">
+                <input name='title' type="text" placeholder="Write The Blog Title">
+            </div>
+
+
+            <div class="input">
+                <textarea placeholder='deatil problem' name="detail" id="" cols="30" rows="10" required></textarea>
+            </div>
+
+            <div class="input">
+                <input name='image' type="file" required>
+            </div>
+
+            <div class="submit-btn">
+                <input type="submit" value="Submit">
+            </div>
+
+            <div class="close" onclick="popupToggle();">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <script>
+                function popupToggle() {
+                    const popup = document.getElementById('popup');
+                    popup.classList.toggle('active')
+                }
+            </script>
+        </form>
+    </div>    
+    <div class="container">
+        <div class="boxs">
+            {% for re in cat  %}
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa-solid fa-file-circle-question"></i>
+                    </div>
+                    <h5>{{re.title}}</h5>
+                    <div class="q-btn">
+                        <a href="{% url 'singleblog' re.id %}">Questions :  {{re.amount}}</a>
+                    </div>
+                </div>
+            {% endfor %}
+           
+
+        </div>
+    </div>
+</section>
+
+<script>
+    function popupToggle() {
+        const popup = document.getElementById('popup');
+        popup.classList.toggle('active')
+    }
+</script>
+
+{% endblock content %}

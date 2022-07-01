@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<section class="user-profile container">
+    <h2>Your Courses Buy</h2>
+    <div class="user-icon"><i class="fa-solid fa-compact-disc "></i></div>
+
+    <div class="table-container" id="your-courses">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th> Total</th>
+                    <th>Code</th>
+                    <th>Phone Number</th>
+                    <th>Status</th>
+                    <th>Time</th>
+                    <th>Open</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for re in allsales  %}
+                <tr>
+                    <td data-label="Course Name ">{{re.category}}</td>
+                    <td data-label="Subscription date ">{{re.total}}</td>
+                    <td data-label="No. Of Videos ">{{re.code}}</td>
+                    <td data-label="Watched ">{{re.phone_number}}</td>
+                    <td data-label="All Exams ">{{re.status}}</td>
+                    <td data-label="Finished Exams ">{{re.create_at}}</td>
+                    <td data-label="Open ">
+                        <button>
+                            <a href="{% url 'mycourse'  %}?category={{re.category.id}}" class="btn btn-primary">Open</a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}                
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock content %}

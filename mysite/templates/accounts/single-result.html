@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="user-profile container">
+
+    <h2>Result Exam ({{get_exam.exam}}  )</h2>
+    <div class="user-icon"><i class="fa-brands fa-steam"></i></div>
+    <img src='{{answerexam.image.url}}'>
+    <div class="table-container">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> Question Number</th>
+                    <th>Question</th>
+                    <th>Your Answer</th>
+                    <th>Answer</th>
+                    <th>marks</th>                    
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for re in answeruser  %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{re.question}}</td>
+                    <td>{{re.answeruser}}</td>
+                    <td>{{re.answer}}</td>
+                    <td>{{re.marks}}</td>
+                  </tr>   
+                {% endfor %}         
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+
+
+
+{% endblock content %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<section class="community single-question">
+
+    <div class="container">
+
+        <div class="question-box">
+            <div class="head">
+                <div class="icon"><i class="fa-solid fa-paste"></i></div>
+                <div class="content">
+                    <div class="q">
+                        <h4>{{get_post.title}}</h4>
+                    </div>
+                    <div class="date">
+                        <div class="time"><i class="fa-solid fa-clock"></i></div>
+                        <p>{{get_post.create_at}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body">
+                <div class="discription">
+                    <h5>{{get_post.deatil}}</h5>
+                    {% if get_post.image %}
+                    <div class="image">
+                        <img src="{{get_post.image.url}}" alt="">
+                    </div>
+                    {% endif %}
+                    <div class="user">
+                        <div class="user-name">
+                            <h5>{{get_post.user.first_name |add:' '|add:get_post.user.last_name}}</h5>
+                            <div class="icon"><i class="fa-solid fa-circle-user"></i></div>
+                        </div>
+                        <div class="like"><i class="fa-solid fa-thumbs-up"></i></div>
+
+                    </div>
+                </div>
+                <h6 class="title">The Comments</h6>
+
+                <div class="comments">
+                    <div class="comment">
+                        <div class="com-head">
+                            <div class="user-comment">
+                                <div class="icon"><i class="fa-solid fa-circle-user"></i></div>
+                                <div>
+                                    <h5>Admin</h5>
+                                    <div class="date">
+                                        <div class="time"><i class="fa-solid fa-clock"></i></div>
+                                        {% if get_comment.create_at %}
+                                        <p>{{get_comment.create_at}}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-bookmark"></i>
+                            </div>
+                        </div>
+                        {% if get_comment.comment %}
+                        <h6>{{get_comment.comment}}</h6>
+                        {% endif %}
+                        {% if get_comment.image %}
+                        <img src='{{get_comment.image.url}}'>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+</section>
+
+
+{% endblock content %}

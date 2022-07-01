@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demooooo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+  
+  </head>
+<body>
+  <table class="table" style='margin-top:20px;'>
+    <thead>
+      <tr>
+        <th scope="col"> Question Number</th>
+        <th scope="col">Question</th>
+        <th scope="col">Your Answer</th>
+        <th scope="col">Answer</th>
+        <th scope="col">marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for re in answeruser  %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{re.question}}</td>
+        <td>{{re.answeruser}}</td>
+        <td>{{re.answer}}</td>
+        <td>{{re.marks}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>

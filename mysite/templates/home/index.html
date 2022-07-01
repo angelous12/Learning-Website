@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+
+    <div class="header-container container">
+        <div class="header-left">
+            <h1>Grow Your Skills to advance your career path</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum at amet perferendis sequi nisi quod maxime ut mollitia rerum.</p>
+            <a href="{% url 'allcourses' %}" class="btn">Get Started</a>
+        </div>
+
+        <div class="header-right">
+            <div class="header-right-image">
+                <img src="/static/images/hero-image.png" alt="">
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End Header -->
+
+<!-- Start Categories -->
+<section class="categories">
+    <div class="categories-container container">
+        <div class="categories-left">
+            <h1>Categories</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam fuga, optio accusantium repellendus et architecto distinctio saepe labore sequi, atque necessitatibus. Error expedita blanditiis, aliquid libero quod pariatur ullam minima.</p>            
+        </div>
+
+        <div class="categories-right">
+
+            <article class="category">
+                <span class="category-icon"><i class="fa-brands fa-bitcoin"></i></span>
+                <h5>Blockchain</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </article>
+
+            <article class="category">
+                <span class="category-icon"><i class="fa-solid fa-palette"></i></span>
+                <h5>Graphic Design</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </article>
+
+            <article class="category">
+                <span class="category-icon"><i class="fa-solid fa-bullhorn"></i></span>
+                <h5>Marketing</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </article>
+
+            <article class="category">
+                <span class="category-icon"><i class="fa-solid fa-file-code"></i></span>
+                <h5>Development</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </article>
+
+            <article class="category">
+                <span class="category-icon"><i class="fa-solid fa-photo-film"></i></i></span>
+                <h5>Video Editing</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </article>
+
+            <article class="category">
+                <span class="category-icon"><i class="fa-solid fa-camera-retro"></i></span>
+                <h5>Photoghraph</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- End Categories -->
+
+<!-- Start Courses -->
+<section class="courses">
+    <h2>Our Popular Courses</h2>
+    <div class="courses-container container">
+        {% for re in random  %}
+        <article class="course">
+            <div class="course-img">
+                <img src="{{re.image.url}}" alt="" style="
+                width: 385px;
+                height: 385px;
+            ">
+            </div>
+            <div class="course-info">
+                <h4>{{re.title}}</h4>
+                <p>{{re.deatil}}</p>
+                <a href="{% url 'singlecourses' re.id %}" class="btn">Learn More</a>
+            </div>
+        </article>
+        {% endfor %}      
+    </div>
+</section>
+<!-- End Courses -->
+
+<!-- End Questions -->
+
+<!-- Start Testimonials -->
+<section class="testimonials-container container mySwiper">
+    <h2>Student's Testimonials</h2>
+    <div class="swiper-wrapper">
+        {% for re in opinion  %}
+        <article class="testimonial swiper-slide">         
+            <div class="testimonial-body">
+                <img src="{{re.image.url}}" style="
+                height: 349px;
+                
+            ">
+            </div>
+        </article>
+        {% endfor %}        
+       
+    </div>
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</section>
+<!-- End Testimonials -->
+{% endblock content %}

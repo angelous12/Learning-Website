@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% block content %}
+<style>
+  .courses {
+      margin-top: 1rem;
+  }
+</style>
+    <section class="container">
+        <h2>{{course_id.title}} ( {{course_id.category.title}} )</h2>
+        <div class="user-course">
+
+            <div class="video-wrapper">
+              {{course_id.link | safe}}
+            </div>
+
+        </div>
+    </section>    
+{% endblock content %}
+  
